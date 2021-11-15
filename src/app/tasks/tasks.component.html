@@ -1,0 +1,6 @@
+<li (click)="toggle(task)"
+    [class.complete]="task.completed">
+  <input type="checkbox" [checked]="task.completed">
+  {{task.title}}
+  <button (click)="remove(index)">remove</button>
+</li>

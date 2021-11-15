@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ITodo, todos} from "./todo";
 
 @Component({
@@ -8,7 +8,10 @@ import {ITodo, todos} from "./todo";
 })
 export class AppComponent {
   todos: ITodo[] = todos
-  toggle(task: ITodo) {
-    task.completed = !task.completed
+
+  addTask(title: string) {
+    this.todos.push({
+      title, completed: false
+    })
   }
 }

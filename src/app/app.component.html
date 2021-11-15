@@ -1,8 +1,12 @@
 <h1>Поход в магазин</h1>
-<ul>
-  <li *ngFor="let todo of todos"
-      (click)="toggle(todo)"
-      [class.complete]="todo.completed">
-    {{todo.title}}
-  </li>
+<input #newTaskInput type="text">
+<button (click)="addTask(newTaskInput.value)">add</button>
+
+<ul *ngIf="todos.length > 0">
+  <app-tasks *ngFor="let task of todos; let i = index"
+             [task]="task"
+             [index]="i"
+             [todos]="todos">
+  </app-tasks>
 </ul>
+<div *ngIf="todos.length < 1" [ngStyle]="{'margin': '10px'}">To-do list is empty</div>
