@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ITodo, todos} from "./todo";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-todo';
+  todos: ITodo[] = todos
+  toggle(task: ITodo) {
+    task.completed = !task.completed
+  }
 }
